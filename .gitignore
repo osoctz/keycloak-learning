@@ -1,0 +1,3 @@
+# Project exclude paths
+/app-authz-keycloak-web/target/
+/app-authz-sqlbuilder/target/

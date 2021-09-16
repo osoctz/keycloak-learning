@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: sqlbuilder
+  thymeleaf:
+    cache: false
+    prefix: classpath:/views/
+    mode: HTML
+
+server:
+  port: 9080
+  servlet:
+    context-path: /asb
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  # realm
+  realm: bailian
+  public-client: true
+  # clientId
+  resource: sqlbuilder-app
+  # 安全约束
+  security-constraints:
+    - authRoles:
+        - common_user
+      security-collections:
+        - patterns:
+            - /index
+            - /demo/*

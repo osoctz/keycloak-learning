@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: app-authz-keycloak-web
+  thymeleaf:
+    cache: false
+    prefix: classpath:/views/
+    mode: HTML
+
+server:
+  port: 9090
+#  servlet:
+#    context-path: /akw
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  # realm
+  realm: app-authz-users-web
+  ssl-required: external
+  # clientId
+  resource: app-authz-users-test
+  credentials:
+    secret: 6b4c5528-5d9c-48ff-9991-00dc17f7e0eb
+  use-resource-role-mappings: false
+  bearer-only: false
+  autodetect-bearer-only: false
+  # 安全约束
+  security-constraints:
+    - authRoles:
+        - ROLE_COMMON
+      security-collections:
+        - patterns:
+            - "/*"
+  policy-enforcer-config:
+    on-deny-redirect-to: /accessDenied
+  enabled: true
+#  verify-token-audience: true
+
+#debug: true
+logging:
+  level:
+    org:
+      keycloak: DEBUG
