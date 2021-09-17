@@ -1,0 +1,40 @@
+server:
+  port: 9091
+
+keycloak:
+  realm: metaq-cn
+  auth-server-url: http://localhost:8080/auth
+  resource: app-authz-security-web
+  ssl-required: external
+  credentials:
+    secret: 892bc2ce-0787-48f5-9053-9caf25b1974b
+  #使用realm级别还是应用级别的角色控制
+  use-resource-role-mappings: false
+  bearer-only: false
+  #应用同时提供web页面跟Restful API服务时需设置为true，Keycloak会根据请求的方式，将未通过认证的请求重定向到登录页或者直接返回401状态码
+  autodetect-bearer-only: true
+#  security-constraints:
+#    - authRoles:
+#        - ROLE_USER
+#      securityCollections:
+#        - name: users
+#          patterns:
+#            - /users
+#    - authRoles:
+#        - ROLE_ADMIN
+#      securityCollections:
+#        - name: admin
+#          patterns:
+#            - /admin
+
+
+spring:
+  thymeleaf:
+    cache: false
+    prefix: classpath:/views/
+    mode: HTML
+
+logging:
+  level:
+    org:
+      keycloak: DEBUG
