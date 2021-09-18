@@ -1,13 +1,13 @@
 server:
-  port: 9091
+  port: 9093
 
 keycloak:
   realm: metaq-cn
   auth-server-url: http://localhost:8080/auth
-  resource: app-authz-security-web
+  resource: app-authz-security-webapi
   ssl-required: external
   credentials:
-    secret: 892bc2ce-0787-48f5-9053-9caf25b1974b
+    secret: 77ee5059-352f-41c9-a3f1-629830e53f93
   #使用realm级别还是应用级别的角色控制
   use-resource-role-mappings: false
   bearer-only: false

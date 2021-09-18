@@ -1,4 +1,4 @@
-package cn.metaq.web.config;
+package web.config;
 
 import org.keycloak.adapters.KeycloakConfigResolver;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
@@ -23,19 +23,19 @@ public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
         auth.authenticationProvider(keycloakAuthenticationProvider());
     }
 
-    @Bean
-    public GrantedAuthoritiesMapper grantedAuthoritiesMapper() {
-        SimpleAuthorityMapper mapper = new SimpleAuthorityMapper();
-        mapper.setConvertToUpperCase(true);
-        return mapper;
-    }
-
-    @Override
-    protected KeycloakAuthenticationProvider keycloakAuthenticationProvider() {
-        final KeycloakAuthenticationProvider provider = super.keycloakAuthenticationProvider();
-        provider.setGrantedAuthoritiesMapper(grantedAuthoritiesMapper());
-        return provider;
-    }
+//    @Bean
+//    public GrantedAuthoritiesMapper grantedAuthoritiesMapper() {
+//        SimpleAuthorityMapper mapper = new SimpleAuthorityMapper();
+//        mapper.setConvertToUpperCase(true);
+//        return mapper;
+//    }
+//
+//    @Override
+//    protected KeycloakAuthenticationProvider keycloakAuthenticationProvider() {
+//        final KeycloakAuthenticationProvider provider = super.keycloakAuthenticationProvider();
+//        provider.setGrantedAuthoritiesMapper(grantedAuthoritiesMapper());
+//        return provider;
+//    }
 
     @Bean
     public KeycloakConfigResolver keycloakConfigResolver() {
