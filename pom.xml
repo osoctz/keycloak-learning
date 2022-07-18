@@ -14,6 +14,7 @@
         <module>app-authz-security-web</module>
         <module>app-authz-security-api</module>
         <module>app-authz-security-webapi</module>
+      <module>app-authz-vanilla</module>
     </modules>
 
     <properties>
