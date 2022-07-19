@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: app-authz-vanilla
+
+server:
+  port: 9091
+  servlet:
+    context-path: /app-authz-vanilla
+keycloak:
+  realm: hello-world-authz
+  auth-server-url: http://localhost:8080/auth
+  ssl-required: external
+  #client_id
+  resource: app-authz-vanilla
+  verify-token-audience: true
+  credentials:
+    #client_secret
+    secret: f02b745e-b29d-4789-979a-7b2a3be7194f
+  enabled: true
+  bearer-only: false
+  # 安全约束
+  security-constraints:
+    - authRoles:
+        - ROLE_TR1
+      security-collections:
+        - patterns:
+            - "/hello"
+            - "/getToken"
+  cors: true
